@@ -1,28 +1,25 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ $store.state.counter }}</h1>
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
-    <p>Count = {{ count }}</p>
-    <p v-for="number in getArrayTillCount()" :key="number">{{ number }}</p>
-    <p>Learn more at <a v-bind:href="githubLink">agrawalsrijan</a> github.</p>
+    <TheCounterList/>
   </div>
 </template>
 
 <script>
+import TheCounterList from './TheCounterList.vue';
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String,
-    count: Number,
-    githubLink: String,
+  name: 'TheCounter',
+  components: {
+    TheCounterList
   },
   methods: {
     increment() {
-      this.$emit('increment');
+      this.$store.state.counter++;
     },
     decrement() {
-      this.$emit('decrement');
+      this.$store.state.counter--;
     },
     getArrayTillCount: function () {
       return Array.from({ length: this.count }, (_, index) => index + 1);

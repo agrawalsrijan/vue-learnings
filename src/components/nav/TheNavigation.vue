@@ -8,6 +8,9 @@
         <li>
           <RouterLink to="/users">Users</RouterLink>
         </li>
+        <li>
+          <RouterLink to="/counter">Counter</RouterLink>
+        </li>
       </ul>
     </nav>
   </header>
