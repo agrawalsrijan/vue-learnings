@@ -1,7 +1,13 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <v-app>
+        <v-main>
+          <v-container>
+            <!-- <img src="./assets/logo.png"> -->
+            <router-view/>
+          </v-container>
+        </v-main>
+      </v-app>
   </div>
 </template>
 
