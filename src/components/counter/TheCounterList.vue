@@ -9,7 +9,7 @@ import {mapGetters} from 'vuex'
 export default {
     name: 'TheCounterList',
     computed: {
-       ...mapGetters(['getArrayTillCount'])
+       ...mapGetters('numbers', ['getArrayTillCount'])
     }
 }
 </script>

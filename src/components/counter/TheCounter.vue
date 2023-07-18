@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ $store.getters.getDoubledCounter }}</h1>
+    <h1>{{ $store.getters['numbers/getDoubledCounter'] }}</h1>
     <button @click="inc({value:1})">+</button>
     <button @click="dec({value:1})">-</button>
     <TheCounterList />
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
 
-    ...mapActions({
+    ...mapActions('numbers', {
       inc: 'increment',
       dec: 'decrement'
     })

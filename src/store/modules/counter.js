@@ -1,4 +1,5 @@
 const counterModule = {
+    namespaced: true,
     state() {
         return {
             counter: 0
