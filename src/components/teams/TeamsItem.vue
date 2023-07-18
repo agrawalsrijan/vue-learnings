@@ -2,13 +2,15 @@
   <li>
     <h3>{{ name }}</h3>
     <div class="team-members">{{ memberCount }} Members</div>
-    <a href="#">View Members</a>
+    <RouterLink :to="`/teams/${id}`">View Members</RouterLink>
   </li>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
 export default {
-  props: ['name', 'memberCount'],
+  props: ["name", "memberCount", "id"],
+  components: { RouterLink }
 };
 </script>
 

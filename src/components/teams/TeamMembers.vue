@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       teamName: '',
-      members: []``
+      members: []
     };
   },
   created() {
@@ -31,7 +31,6 @@ export default {
     this.teamName = this.$route.params.teamId;
     const teamMemberIds = this.teams.find(team => team.id === teamId).members;
     const teamMembers = this.users.filter(user => teamMemberIds.includes(user.id));
-    console.log(teamMembers, 'teamMembers');
     this.members = teamMembers
   }
 };
