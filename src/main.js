@@ -29,12 +29,12 @@ const store = createStore({
         increment(context, payload) {
             setTimeout(() => {
                 context.commit('increment', payload)
-            }, 2000)
+            }, 1000)
         },
         decrement(context, payload) {
             setTimeout(() => {
                 context.commit('decrement', payload)
-            }, 2000)
+            }, 1000)
         }
     },
     getters: {
@@ -46,9 +46,12 @@ const store = createStore({
         },
         isSuperUser(_, getters) {
             return getters.getUserDetails.role === 'superAdmin'
+        },
+        getArrayTillCount(_, getters) {
+            return Array.from({ length: getters.getDoubledCounter }, (_, index) => index + 1);
         }
     },
-    
+
 })
 const appRouter = createRouter({
     history: createWebHistory(),

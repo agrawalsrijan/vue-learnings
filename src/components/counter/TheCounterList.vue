@@ -5,12 +5,11 @@
 </template>
   
 <script>
+import {mapGetters} from 'vuex'
 export default {
     name: 'TheCounterList',
     computed: {
-        getArrayTillCount: function () {
-            return Array.from({ length: this.$store.state.counter }, (_, index) => index + 1);
-        }
+       ...mapGetters(['getArrayTillCount'])
     }
 }
 </script>
