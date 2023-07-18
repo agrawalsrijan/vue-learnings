@@ -5,11 +5,17 @@ import App from './App.vue'
 import TeamsList from './components/teams/TeamsList.vue';
 import UsersList from './components/users/UsersList.vue';
 import TeamMembers from './components/teams/TeamMembers.vue';
-import Counter from './components/counter/TheCounter.vue'
+import Counter from './components/counter/TheCounter.vue';
+import counterModule from './store/modules/counter'
+
 const store = createStore({
+    modules: {
+        numbers: counterModule
+    },
     state() {
         return {
             counter: 0,
+            isLoggedIn: false,
             userDetails: {
                 userName: 'testUser11@test.com',
                 role: 'superAdmin',
@@ -18,37 +24,27 @@ const store = createStore({
         }
     },
     mutations: {
-        increment(state, payload) {
-            state.counter = state.counter + payload.value
-        },
-        decrement(state, payload) {
-            state.counter = state.counter - payload.value
+        setAuth(state, payload) {
+            state.isLoggedIn = payload.isLoggedIn
         }
     },
     actions: {
-        increment(context, payload) {
-            setTimeout(() => {
-                context.commit('increment', payload)
-            }, 1000)
+        login(context) {
+            context.commit('setAuth', { isLoggedIn: true })
         },
-        decrement(context, payload) {
-            setTimeout(() => {
-                context.commit('decrement', payload)
-            }, 1000)
+        logout(context) {
+            context.commit('setAuth', { isLoggedIn: false })
         }
     },
     getters: {
-        getDoubledCounter(state) {
-            return state.counter * 2
-        },
         getUserDetails(state) {
             return state.userDetails
         },
         isSuperUser(_, getters) {
             return getters.getUserDetails.role === 'superAdmin'
         },
-        getArrayTillCount(_, getters) {
-            return Array.from({ length: getters.getDoubledCounter }, (_, index) => index + 1);
+        isUserAuthenticated(state) {
+            return state.isLoggedIn;
         }
     },
 

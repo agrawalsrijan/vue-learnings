@@ -1,11 +1,12 @@
 <template>
   <TheNavigation></TheNavigation>
-  <main>
+  <main v-show="isUserAuthenticated">
     <router-view></router-view>
   </main>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import TheNavigation from './components/nav/TheNavigation.vue';
 
 export default {
@@ -34,7 +35,8 @@ export default {
       users: this.users,
     };
   },
-  methods: {
+  computed: {
+    ...mapGetters(['isUserAuthenticated'])
   },
 };
 </script>

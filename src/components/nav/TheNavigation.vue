@@ -2,22 +2,41 @@
   <header>
     <nav>
       <ul>
-        <li>
+        <li v-show="isUserAuthenticated">
           <RouterLink to="/teams">Teams</RouterLink>
         </li>
-        <li>
+        <li v-show="isUserAuthenticated">
           <RouterLink to="/users">Users</RouterLink>
         </li>
-        <li>
+        <li v-show="isUserAuthenticated">
           <RouterLink to="/counter">Counter</RouterLink>
         </li>
+        <li v-show="!isUserAuthenticated">
+          <button @click="login">Login</button>
+        </li>
+        <li v-show="isUserAuthenticated">
+          <button @click="logout">Logout</button>
+        </li>
+      </ul>
+      <ul>
+
       </ul>
     </nav>
   </header>
 </template>
 
 
-
+<script>
+import { mapActions, mapGetters } from 'vuex';
+export default {
+  methods: {
+    ...mapActions(['login', 'logout'])
+  },
+  computed: {
+    ...mapGetters(['isUserAuthenticated'])
+  }
+};
+</script>
 <style scoped>
 header {
   width: 100%;
@@ -43,7 +62,8 @@ li {
   margin: 0 2rem;
 }
 
-a {
+a,
+button {
   text-decoration: none;
   background: transparent;
   border: 1px solid transparent;
