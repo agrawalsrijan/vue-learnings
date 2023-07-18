@@ -1,13 +1,14 @@
 <template>
   <div class="hello">
     <h1>{{ $store.getters.getDoubledCounter }}</h1>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
+    <button @click="inc({value:1})">+</button>
+    <button @click="dec({value:1})">-</button>
     <TheCounterList />
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import TheCounterList from './TheCounterList.vue';
 export default {
   name: 'TheCounter',
@@ -15,15 +16,24 @@ export default {
     TheCounterList
   },
   methods: {
-    increment() {
-      this.$store.dispatch('increment', { value: 1 })
-    },
-    decrement() {
-      this.$store.dispatch({
-        type: 'decrement',
-        value: 1
-      })
-    }
+
+    ...mapActions({
+      inc: 'increment',
+      dec: 'decrement'
+    })
+
+    // redundant code here replace by above
+
+    // increment() {
+    //   this.$store.dispatch('increment', { value: 1 })
+    // },
+
+    // decrement() {
+    //   this.$store.dispatch({
+    //     type: 'decrement',
+    //     value: 1
+    //   })
+    // }
   }
 }
 </script>
