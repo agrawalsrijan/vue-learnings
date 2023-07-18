@@ -1,9 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ $store.state.counter }}</h1>
+    <h1>{{ $store.getters.getDoubledCounter }}</h1>
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
-    <TheCounterList/>
+    <TheCounterList />
   </div>
 </template>
 
@@ -16,13 +16,13 @@ export default {
   },
   methods: {
     increment() {
-      this.$store.state.counter++;
+      this.$store.dispatch('increment', { value: 1 })
     },
     decrement() {
-      this.$store.state.counter--;
-    },
-    getArrayTillCount: function () {
-      return Array.from({ length: this.count }, (_, index) => index + 1);
+      this.$store.dispatch({
+        type: 'decrement',
+        value: 1
+      })
     }
   }
 }
@@ -52,4 +52,5 @@ li {
 
 a {
   color: #42b983;
-}</style>
+}
+</style>
