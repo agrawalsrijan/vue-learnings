@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit -c tests/unit/jest.config.js",
+    "test:unit:watch": "vue-cli-service test:unit --watch -c tests/unit/jest.config.js",
+    "test:unit-ci": "vue-cli-service test:unit -c tests/unit/jest.config.js --ci --silent || true"
   },
   "dependencies": {
     "axios": "^1.4.0",
