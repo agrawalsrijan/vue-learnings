@@ -10,7 +10,7 @@ module.exports = {
     },
     transform: {
         '.*\\.(ts)$': 'ts-jest',
-        '.*\\.(vue)$': 'vue-jest',
+        '.*\\.(vue)$': 'vue3-jest',
         '.*\\.(js)$': 'babel-jest',
         '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'jest-transform-stub',
     },
@@ -18,7 +18,7 @@ module.exports = {
     testEnvironment: 'jest-environment-jsdom',
     testMatch: ['**/**/*.spec.js', '**/**/*.spec.ts'],
     testPathIgnorePatterns: ['<rootDir>/config/', '<rootDir>/node_modules'],
-    setupFiles: ['<rootDir>/tests/unit/setup.js'],
+    // setupFiles: ['<rootDir>/tests/unit/setup.js'],
     // Jest-junit config
     reporters: [
         'default',

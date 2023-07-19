@@ -25,7 +25,7 @@ describe('@TheCounter', () => {
     // });
 
     test('@components - should have correct list', () => {
-        expect(Object.keys(TheCounter.components)).toEqual(['VehicleActionsList', 'SummaryVehicle']);
+        expect(Object.keys(TheCounter.components)).toEqual(['TheCounterList']);
     });
    
 });
