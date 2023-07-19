@@ -17,6 +17,7 @@ const authModule = {
     },
     actions: {
         login(context) {
+            //a sync code
             context.commit('setAuth', { isLoggedIn: true })
         },
         logout(context) {

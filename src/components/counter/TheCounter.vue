@@ -22,7 +22,7 @@ export default {
       dec: 'decrement'
     })
 
-    // redundant code here replace by above
+    // redundant code here replaced by above
 
     // increment() {
     //   this.$store.dispatch('increment', { value: 1 })

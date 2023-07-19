@@ -15,7 +15,7 @@ const appRouter = createRouter({
         { path: '/teams', component: TeamsList },
         { path: '/users', component: UsersList },
         { path: '/counter', component: Counter },
-        { path: '/teams/:teamId', component: TeamMembers }
+        { path: '/teams/:teamId', component: TeamMembers}
     ]
 })
 
